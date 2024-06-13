@@ -5,19 +5,23 @@ import java.util.Random;
 public class Prodotto {
 		
 	    private Random randomNumber = new Random ();
+	    private int minCode = 0;
+	    private int maxCode = 999999;
 		private int code;
 		private String name;
 		private String description;
 		private double price;
 		private double vat;
 		
-		public Prodotto() {}
+		public Prodotto() {
+			setCode(randomNumber.nextInt(this.maxCode + 1 - this.minCode) + this.minCode);
+		}
 		public Prodotto(String name, String description, double price, double vat) {
-			this.setCode(randomNumber.nextInt());
-			this.setName(name);
-			this.setDescription(description);
-			this.setPrice(price);
-			this.setVat(vat);
+			setCode(randomNumber.nextInt(this.maxCode + 1 - this.minCode) + this.minCode);
+			setName(name);
+			setDescription(description);
+			setPrice(price);
+			setVat(vat);
 		}
 		public int getCode() {
 			return code;
